@@ -1,64 +1,55 @@
 #include<iostream>
+#include "scheduler.h"
+
 using namespace std;
 
-// This class is to simulate a FCFS Process Scheduler
-class FCFS_Scheduler{
+void FCFS_Scheduler::findWaitingTime(int processes[], int n,int bt[], int wt[]) { 
+    // waiting time for first process is 0 
+    wt[0] = 0; 
 
-    // Function to find the waiting time for all  
-    // processes 
-    private:
-        void findWaitingTime(int processes[], int n,int bt[], int wt[]) 
-        { 
-            // waiting time for first process is 0 
-            wt[0] = 0; 
+    // calculating waiting time 
+    for (int  i = 1; i < n ; i++ ) 
+        wt[i] =  bt[i-1] + wt[i-1] ; 
+} 
         
-            // calculating waiting time 
-            for (int  i = 1; i < n ; i++ ) 
-                wt[i] =  bt[i-1] + wt[i-1] ; 
-        } 
-        
-        // Function to calculate turn around time 
-        void findTurnAroundTime( int processes[], int n, int bt[], int wt[], int tat[]) 
-        { 
-            // calculating turnaround time by adding 
-            // bt[i] + wt[i] 
-            for (int  i = 0; i < n ; i++) 
-                tat[i] = bt[i] + wt[i]; 
-        } 
+// Function to calculate turn around time 
+void FCFS_Scheduler::findTurnAroundTime( int processes[], int n, int bt[], int wt[], int tat[]) { 
+    // calculating turnaround time by adding 
+    // bt[i] + wt[i] 
+    for (int  i = 0; i < n ; i++) 
+        tat[i] = bt[i] + wt[i]; 
+} 
 
-    public:  
-        //Function to calculate average time 
-        void findavgTime( int processes[], int n, int bt[]) 
-        { 
-            int wt[n], tat[n], total_wt = 0, total_tat = 0; 
-        
-            //Function to find waiting time of all processes 
-            findWaitingTime(processes, n, bt, wt); 
-        
-            //Function to find turn around time for all processes 
-            findTurnAroundTime(processes, n, bt, wt, tat); 
-        
-            //Display processes along with all details 
-            cout << "Processes  "<< " Burst time  "
-                << " Waiting time  " << " Turn around time\n"; 
-        
-            // Calculate total waiting time and total turn  
-            // around time 
-            for (int  i=0; i<n; i++) 
-            { 
-                total_wt = total_wt + wt[i]; 
-                total_tat = total_tat + tat[i]; 
-                cout << "   " << i+1 << "\t\t" << bt[i] <<"\t    "
-                    << wt[i] <<"\t\t  " << tat[i] <<endl; 
-            } 
-        
-            cout << "Average waiting time = " 
-                << (float)total_wt / (float)n; 
-            cout << "\nAverage turn around time = " 
-                << (float)total_tat / (float)n; 
-        } 
+//Function to calculate average time 
+void FCFS_Scheduler::findavgTime( int processes[], int n, int bt[]) { 
+    int wt[n], tat[n], total_wt = 0, total_tat = 0; 
 
-};
+    //Function to find waiting time of all processes 
+    findWaitingTime(processes, n, bt, wt); 
+
+    //Function to find turn around time for all processes 
+    findTurnAroundTime(processes, n, bt, wt, tat); 
+
+    //Display processes along with all details 
+    cout << "Processes  "<< " Burst time  "
+        << " Waiting time  " << " Turn around time\n"; 
+
+    // Calculate total waiting time and total turn  
+    // around time 
+    for (int  i=0; i<n; i++) 
+    { 
+        total_wt = total_wt + wt[i]; 
+        total_tat = total_tat + tat[i]; 
+        cout << "   " << i+1 << "\t\t" << bt[i] <<"\t    "
+            << wt[i] <<"\t\t  " << tat[i] <<endl; 
+    } 
+
+    cout << "Average waiting time = " 
+        << (float)total_wt / (float)n; 
+    cout << "\nAverage turn around time = " 
+        << (float)total_tat / (float)n; 
+} 
+
 
 class RR_Scheduler{
     private:
@@ -166,7 +157,7 @@ class RR_Scheduler{
 
 };
 
-
+/*
 int main(){
 
     RR_Scheduler Scheduler;
@@ -180,3 +171,4 @@ int main(){
     return(0);
 
 }
+*/
