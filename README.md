@@ -24,6 +24,7 @@ $ sudo apt-get upgrade
 $ sudo apt-get install build-essential libncurses5 libncurses5-dev
 ```
 ## Installation
+This project is a command line tool so make sure to open either a Windows Command prompt or Linux terminal before proceeding. Once in the terminal change directory 'cd' into the directory of the project.
 
 ### Windows
 To build the project run the following command:
