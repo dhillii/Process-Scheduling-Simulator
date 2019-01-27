@@ -60,7 +60,7 @@ int main(){
             
             break;
         default:
-            cout << "The choice you entered is invalid. Exiting..." << endl;
+            cout << " The choice you entered is invalid. Exiting..." << endl;
             exit(0);
     }
     return(0);
