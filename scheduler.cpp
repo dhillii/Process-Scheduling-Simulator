@@ -47,7 +47,7 @@ void FCFS_Scheduler::findavgTime( int processes[], int n, int bt[]) {
     cout << endl <<"Average waiting time = " 
         << (float)total_wt / (float)n; 
     cout << "\nAverage turn around time = " 
-        << (float)total_tat / (float)n; 
+        << (float)total_tat / (float)n << endl; 
 } 
 
 void RR_Scheduler::findWaitingTime(int processes[], int n, int bt[], int wt[], int quantum){ 
@@ -145,5 +145,5 @@ void RR_Scheduler::findavgTime(int processes[], int n, int bt[], int quantum) {
     cout << endl <<"Average waiting time = "
         << (float)total_wt / (float)n; 
     cout << "\nAverage turn around time = "
-        << (float)total_tat / (float)n; 
+        << (float)total_tat / (float)n << endl; 
 } 

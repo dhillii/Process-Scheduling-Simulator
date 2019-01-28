@@ -32,7 +32,7 @@ To build the project run the following command:
 > mingw32-make
 ```
 
-### Linux
+### Linux/MacOS
 To build this project in a Linux environment run the following commad:
 ```
 $ make 
@@ -46,7 +46,7 @@ To run this project use the following commands depending on your platform.
 > Scheduler_Simulator
 ```
 
-### Linux
+### Linux/MacOS
 ```
 $ ./Scheduler_Simulator
 ```
