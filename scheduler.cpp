@@ -147,3 +147,16 @@ void RR_Scheduler::findavgTime(int processes[], int n, int bt[], int quantum) {
     cout << "\nAverage turn around time = "
         << (float)total_tat / (float)n << endl; 
 } 
+// Function to sort the Process acc. to priority
+bool Priority_Scheduler::comparison(Process a, Process b){
+    return (a.priority > b.priority);
+}
+// Function to find the waiting time for all processes 
+void Priority_Scheduler::findWaitingTime(Process proc[], int n, int wt[]){
+    // waiting time for first process is 0 
+    wt[0] = 0; 
+  
+    // calculating waiting time 
+    for (int  i = 1; i < n ; i++ ) 
+        wt[i] =  proc[i-1].bt + wt[i-1] ;
+}
