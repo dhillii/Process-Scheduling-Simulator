@@ -23,8 +23,14 @@ class RR_Scheduler{
 };
 
 class Priority_Scheduler{
-
-
+    struct Process;
+    private:
+        bool comparison(Process a, Process b);
+        void findWaitingTime(Process proc[], int n, int wt[]);
+        void findTurnAroundTime( Process proc[], int n, int wt[], int tat[]);
+        void findavgTime(Process proc[], int n);
+    public:
+        void priorityScheduling(Process proc[], int n);
 };
 
 
