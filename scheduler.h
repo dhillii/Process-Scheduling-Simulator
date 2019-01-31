@@ -22,14 +22,17 @@ class RR_Scheduler{
 
 };
 
-class Priority_Scheduler{
-    struct Process{
+
+ struct Process{
         int pid;  // Process ID 
         int bt;   // CPU Burst time required 
         int priority; // Priority of this process 
-    };
+};
+
+bool comparison(Process a, Process b);
+
+class Priority_Scheduler{
     private:
-        bool comparison(Process a, Process b);
         void findWaitingTime(Process proc[], int n, int wt[]);
         void findTurnAroundTime(Process proc[], int n, int wt[], int tat[]);
         void findavgTime(Process proc[], int n);

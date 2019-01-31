@@ -1,5 +1,6 @@
 #include<iostream>
 #include "scheduler.h"
+#include <algorithm> 
 
 using namespace std;
 
@@ -149,7 +150,7 @@ void RR_Scheduler::findavgTime(int processes[], int n, int bt[], int quantum) {
 } 
 
 // Function to sort the Process acc. to priority
-bool Priority_Scheduler::comparison(Process a, Process b){
+bool comparison(Process a, Process b){
     return (a.priority > b.priority);
 }
 
@@ -197,7 +198,7 @@ void Priority_Scheduler::findavgTime(Process proc[], int n){
     cout << "\nAverage waiting time = "
          << (float)total_wt / (float)n; 
     cout << "\nAverage turn around time = "
-         << (float)total_tat / (float)n; 
+         << (float)total_tat / (float)n <<endl; 
 }
 
 void Priority_Scheduler::priorityScheduling(Process proc[], int n){

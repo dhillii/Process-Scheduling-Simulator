@@ -9,8 +9,10 @@ char initPrompt();
 int main(){
     int numProc, quantum;
     int bt;
+    int priority;
     int burst_times[100];    
     int processes[100];
+    Process P_Processes[100];
     
 
     char choice = initPrompt();
@@ -57,7 +59,26 @@ int main(){
             break;
         case 'P':
         case 'p':
-            
+            cout << " Enter the number of Processes: ";
+            cin >> numProc;
+
+            for(int i = 0; i < numProc; i++){
+                int temp = i;   //protect i value from being mutated
+                
+                P_Processes[temp].pid = temp+1;
+
+                cout << endl << " Enter the burst time for Process " << P_Processes[temp].pid <<": ";
+                cin >> bt;
+                P_Processes[temp].bt = bt;
+
+                cout << endl << " Enter the priority for Process " << P_Processes[temp].pid <<": ";
+                cin >> priority;
+                P_Processes[temp].priority = priority;
+            }
+            cout << endl << "....................PRIORITY SCHEDULING SIMULATION...................." << endl;
+            Priority_Scheduler P_Scheduler;
+            P_Scheduler.priorityScheduling(P_Processes, numProc);
+
             break;
         default:
             cout << " The choice you entered is invalid. Exiting..." << endl;
