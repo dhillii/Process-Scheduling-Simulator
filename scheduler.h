@@ -5,10 +5,10 @@ class FCFS_Scheduler{
    
     private:
         void findWaitingTime(int processes[], int n,int bt[], int wt[]);
-        void findTurnAroundTime( int processes[], int n, int bt[], int wt[], int tat[]);
+        void findTurnAroundTime(int processes[], int n, int bt[], int wt[], int tat[]);
     
     public:
-        void findavgTime( int processes[], int n, int bt[]);
+        void findavgTime(int processes[], int n, int bt[]);
 
 };
 
@@ -31,7 +31,7 @@ class Priority_Scheduler{
     private:
         bool comparison(Process a, Process b);
         void findWaitingTime(Process proc[], int n, int wt[]);
-        void findTurnAroundTime( Process proc[], int n, int wt[], int tat[]);
+        void findTurnAroundTime(Process proc[], int n, int wt[], int tat[]);
         void findavgTime(Process proc[], int n);
     public:
         void priorityScheduling(Process proc[], int n);
