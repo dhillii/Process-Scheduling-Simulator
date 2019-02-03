@@ -80,6 +80,29 @@ int main(){
             P_Scheduler.priorityScheduling(P_Processes, numProc);
 
             break;
+
+        case 'S':
+        case 's':
+            cout << " Enter the number of Processes: ";
+            cin >> numProc;
+
+            for(int i = 0; i < numProc; i++){
+                int temp = i;   //protect i value from being mutated
+                
+                P_Processes[temp].pid = temp+1;
+
+                cout << endl << " Enter the burst time for Process " << P_Processes[temp].pid <<": ";
+                cin >> bt;
+                P_Processes[temp].bt = bt;
+
+                cout << endl << " Enter the arrival time for Process " << P_Processes[temp].pid <<": ";
+                cin >> priority;
+                P_Processes[temp].arr_time = priority;
+            }
+            cout << endl << "....................PREEMPTIVE SHORTEST JOB FIRST SIMULATION...................." << endl;
+            PSJF_Scheduler SJF_Scheduler;
+            SJF_Scheduler.findavgTime(P_Processes, numProc);
+            break;
         default:
             cout << " The choice you entered is invalid. Exiting..." << endl;
             exit(0);
@@ -91,7 +114,7 @@ int main(){
 char initPrompt(){
     char choice;
     cout << " Please choose your desired scheduling algorithm:" << endl;
-    cout << " (F): FCFS | (R): Round Robin | (P): Priority" << endl;
+    cout << " (F): FCFS | (R): Round Robin | (P): Priority | (S): Preemptive Shortest Job First" << endl;
     cout << " > ";
     cin >> choice;
     return choice;
