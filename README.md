@@ -5,6 +5,7 @@ The algorithms supported by this project are:
 * First Come First Serve
 * Round Robin
 * Priority Scheduling Algorithm
+* Preemptive Shortest Job  First
 
 ## Getting Started
 
